@@ -8,3 +8,5 @@
 [Tt]emp
 *.pidb
 [Bb]uild
+pong
+*.suo

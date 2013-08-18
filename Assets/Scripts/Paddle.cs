@@ -9,8 +9,8 @@ using System.Collections;
 
 public class Paddle : MonoBehaviour {
     public float speed = 20.0f;
-    public float upperBound = 12.5f;
-    public float lowerBound = -10.5f;
+    public float upperBound = 13f;
+    public float lowerBound = -11f;
     public string keyUp;
     public string keyDown;
 
