@@ -35,7 +35,7 @@ public class ball : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         // current velocity
         Vector3 cVel = rigidbody.velocity;
         // normalized vector * constant speed
@@ -46,6 +46,9 @@ public class ball : MonoBehaviour {
         else tVel.y = -cSpeed;
 
         rigidbody.velocity = Vector3.Lerp(cVel, tVel, Time.deltaTime * sFactor);
+    }
+
+    void Update(){
         if (transform.position.x < leftGoal)
         {
             player2Score++;
