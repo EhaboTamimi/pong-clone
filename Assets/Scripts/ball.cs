@@ -16,19 +16,26 @@ public class ball : MonoBehaviour {
     static public int player1Score = 0;
     static public int player2Score = 0;
 
+    public void Awake()
+    {
+        
+    }
+
     public void Reset()
     {
         transform.position = new Vector3(0, 0, 0);
         rigidbody.velocity = Vector3.zero;
+        float xForce = cSpeed;
+        float yForce = cSpeed;
+       
         switch(Random.Range(0, 3)){
-            case 0: rigidbody.AddForce(10, 10, 0); break;
-            case 1: rigidbody.AddForce(-10, 10, 0); break;
-            case 2: rigidbody.AddForce(10, -10, 0); break;
-            case 3: rigidbody.AddForce(-10, -10, 0); break;
+            case 0: rigidbody.AddForce(xForce, yForce, 0); break;
+            case 1: rigidbody.AddForce(-xForce, yForce, 0); break;
+            case 2: rigidbody.AddForce(xForce, -yForce, 0); break;
+            case 3: rigidbody.AddForce(-xForce, -yForce, 0); break;
         }
     }
 
-	// Use this for initialization
 	void Start () {
         // initial force
         Reset();
@@ -38,6 +45,7 @@ public class ball : MonoBehaviour {
 	void FixedUpdate () {
         // current velocity
         Vector3 cVel = rigidbody.velocity;
+        if (cVel == Vector3.zero) return;
         // normalized vector * constant speed
         Vector3 tVel = cVel.normalized * cSpeed;
         if (tVel.x > 0) tVel.x = cSpeed;
@@ -59,7 +67,6 @@ public class ball : MonoBehaviour {
             player1Score++;
             Reset();
         }
-        
         GUIText score1 = GameObject.Find("score1").guiText;
         GUIText score2 = GameObject.Find("score2").guiText;
         score1.text = "Player 1: " + player1Score.ToString();
