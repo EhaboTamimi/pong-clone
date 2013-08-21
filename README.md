@@ -16,7 +16,7 @@ This game is freely based on two Youtube videos about a Unity Pong tutorial, whi
  * Unity3D Pong Tutorial Series - Part 1 - http://www.youtube.com/watch?v=_IzbNanA1Vk
  * Unity3D Pong Tutorial Series - Part 2 - http://www.youtube.com/watch?v=qQ32rGOSg7E
  
-Tested at Windows, Linux, Android and the Web player (htpp://baraujo.net/pong)
+Tested at Windows, Linux, Android and the Web player (http://baraujo.net/pong)
 
 So, that's it. The game is MIT licensed, so you can do whatever you like. 
 
