@@ -15,10 +15,12 @@ public class ball : MonoBehaviour {
     // scores
     static public int player1Score = 0;
     static public int player2Score = 0;
+    ScoreDirector scoreP1, scoreP2;
 
     public void Awake()
     {
-        
+        scoreP1 = GameObject.Find("displayP1").GetComponent<ScoreDirector>();
+        scoreP2 = GameObject.Find("displayP2").GetComponent<ScoreDirector>();
     }
 
     public void Reset()
@@ -28,11 +30,9 @@ public class ball : MonoBehaviour {
         float xForce = cSpeed;
         float yForce = cSpeed;
        
-        switch(Random.Range(0, 3)){
-            case 0: rigidbody.AddForce(xForce, yForce, 0); break;
-            case 1: rigidbody.AddForce(-xForce, yForce, 0); break;
-            case 2: rigidbody.AddForce(xForce, -yForce, 0); break;
-            case 3: rigidbody.AddForce(-xForce, -yForce, 0); break;
+        switch(Random.Range(0, 1)){
+            case 0: rigidbody.AddForce(-xForce, yForce, 0); break;
+            case 1: rigidbody.AddForce(-xForce, -yForce, 0); break;
         }
     }
 
@@ -60,11 +60,13 @@ public class ball : MonoBehaviour {
         if (transform.position.x < leftGoal)
         {
             player2Score++;
+            scoreP2.CurrentNumber = player2Score;
             Reset();
         }
         if (transform.position.x > rightGoal)
         {
             player1Score++;
+            scoreP1.CurrentNumber = player1Score;
             Reset();
         }
         GUIText score1 = GameObject.Find("score1").guiText;
