@@ -34,7 +34,7 @@ public class player2 : Paddle {
             {
                 transform.Translate(new Vector3(0, cSpeed * Time.deltaTime, 0));
             }
-            else
+            else if (ball.rigidbody.velocity.y < 0)
             {
                 transform.Translate(new Vector3(0, -cSpeed * Time.deltaTime, 0));
             }

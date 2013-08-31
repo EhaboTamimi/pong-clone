@@ -9,8 +9,8 @@ public class ScoreDirector : MonoBehaviour
     Dictionary<int, Transform> segments;
     //Dictionary<int, Renderer> segments;
 
-    public int currentNumber;
-    public int CurrentNumber { get { return this.currentNumber; } set { SetNumber(value); } }
+    public int currentScore;
+    public int CurrentScore { get { return this.currentScore; } set { SetNumber(value); } }
 
     void Awake()
     {

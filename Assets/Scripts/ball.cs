@@ -2,11 +2,11 @@
 using System.Collections;
 
 
-public class ball : MonoBehaviour {
+public class Ball : MonoBehaviour {
     // constant speed
     // TODO: Y speed is OK, but what about X speed?
     public float cSpeed = 10.0f;
-    // smoothing factor
+    // smoothing factors
     public float sFactor = 10.0f;
     // goals
     float leftGoal = -19.0f;
@@ -37,11 +37,8 @@ public class ball : MonoBehaviour {
     }
 
 	void Start () {
-        // initial force
-        Reset();
 	}
 	
-	// Update is called once per frame
 	void FixedUpdate () {
         // current velocity
         Vector3 cVel = rigidbody.velocity;
@@ -60,13 +57,13 @@ public class ball : MonoBehaviour {
         if (transform.position.x < leftGoal)
         {
             player2Score++;
-            scoreP2.CurrentNumber = player2Score;
+            scoreP2.CurrentScore = player2Score;
             Reset();
         }
         if (transform.position.x > rightGoal)
         {
             player1Score++;
-            scoreP1.CurrentNumber = player1Score;
+            scoreP1.CurrentScore = player1Score;
             Reset();
         }
         GUIText score1 = GameObject.Find("score1").guiText;
